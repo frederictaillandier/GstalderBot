@@ -1,5 +1,3 @@
-import sys
-sys.path.append('../srcs/')
 import pytest
 import os, json
 from srcs.telegram_sender import TelegramSender
