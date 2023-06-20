@@ -2,10 +2,10 @@ import sys
 sys.path.append('../srcs/')
 import pytest
 import os, json
-from srcs.telegram import TelegramSender
+from srcs.telegram_sender import TelegramSender
 
 def test_telegram_init():
-    with pytest.raises(Exception) as e_info:
+    with pytest.raises(Exception):
         TelegramSender()
 
 def test_telegram_send_message_bad_config():

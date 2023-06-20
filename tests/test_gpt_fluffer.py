@@ -1,7 +1,7 @@
 import sys, json, os
 sys.path.append('../srcs/')
 import pytest
-from srcs.gpt import GPTFluffer
+from srcs.gpt_fluffer import GPTFluffer
 
 def test_telegram_init():
     with pytest.raises(Exception):
