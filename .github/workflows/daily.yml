@@ -1,0 +1,22 @@
+name: Daily
+on:
+    schedule:
+      - cron: '0,15,30,45 * * * *'
+jobs:
+    integration:
+        name: Integration
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v3
+          - name: Set up Python
+            uses: actions/setup-python@v4
+            with:
+              python-version: ${{ matrix.python-version }}
+          - name: Install packages
+            run: |
+              pip install openai
+          - name: run
+            run: |
+              python3 srcs/main.py
+            env:
+              GSTALDERCONFIG: ${{ secrets.GSTALDERCONFIG }}
