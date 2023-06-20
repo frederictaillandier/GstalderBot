@@ -1,5 +1,3 @@
-import sys
-sys.path.append('../srcs/')
 import pytest
 import datetime
 from srcs.food_master_finder import FoodMasterFinder

@@ -1,5 +1,4 @@
-import sys, json, os
-sys.path.append('../srcs/')
+import json, os
 import pytest
 from srcs.gpt_fluffer import GPTFluffer
 
