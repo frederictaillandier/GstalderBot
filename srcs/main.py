@@ -17,7 +17,7 @@ def main():
     fluffer = GPTFluffer(config["open_ai_key"])    
     message = fluffer.fluff(introduction_text) 
 
-    sender = TelegramSender(config["bot_token"], config["chat_id"])
+    sender = TelegramSender(config["bot_token"], config["global_chat_id"])
     sender.send_message(message)
     return 0
 
