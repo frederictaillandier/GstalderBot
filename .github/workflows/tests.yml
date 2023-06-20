@@ -6,16 +6,6 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  tests:
-    name: Tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.8
-      - name: python srcs/return5.py -v
-        run: python srcs/return5.py -v
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
@@ -27,8 +17,9 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install tox and any other packages
-        run: pip install tox
+      - name: Install packages
+        run: |
+          pip install tox
       - name: Run tox
         run: tox -e py
         env:
@@ -47,6 +38,9 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+      - name: Install packages
+        run: |
+          pip install openai
       - name: run
         run: |
           python3 srcs/main.py
