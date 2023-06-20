@@ -12,5 +12,5 @@ def test_telegram_send_message_bad_config():
 
 def test_telegram_send_message_success():
     config = json.loads(os.environ["GSTALDERCONFIG"])
-    sender = TelegramSender(config["bot_token"], config["chat_id"])
+    sender = TelegramSender(config["bot_token"], config["global_chat_id"])
     assert sender.send_message("Hello World!") == True
