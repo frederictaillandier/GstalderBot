@@ -1,5 +1,3 @@
-import datetime
-
 class FoodMasterFinder:
     weeks_calendar_delta = 4
 

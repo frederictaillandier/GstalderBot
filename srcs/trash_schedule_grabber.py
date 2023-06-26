@@ -47,6 +47,7 @@ class TrashScheduleGrabber:
             raw_schedule = raw_schedule + grabber.grab(from_date, until_date)
 
         # filter the schedule to only contain the dates we want
+        # Todo: this could be done in the grabber
         clean_events = list(filter(lambda event: event["date"] >= from_date and event["date"] <= until_date, raw_schedule))
 
         schedule = {}
@@ -56,4 +57,4 @@ class TrashScheduleGrabber:
             schedule[event["date"]].append(event["waste_type"])
 
         return schedule
-
+    
