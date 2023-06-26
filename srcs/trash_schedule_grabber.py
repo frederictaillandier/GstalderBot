@@ -1,7 +1,6 @@
 import requests
 import datetime
 from dateutil.parser import parse
-import calendar
 
 def trim_date(date):
     return {
@@ -45,13 +44,10 @@ class TrashScheduleGrabber:
 
         # grab events for all the event grabbers
         for grabber in self.raw_grabbers:
-            print(grabber.grab)
             raw_schedule = raw_schedule + grabber.grab(from_date, until_date)
-
 
         # filter the schedule to only contain the dates we want
         clean_events = list(filter(lambda event: event["date"] >= from_date and event["date"] <= until_date, raw_schedule))
-
 
         schedule = {}
         for event in clean_events:
@@ -60,17 +56,4 @@ class TrashScheduleGrabber:
             schedule[event["date"]].append(event["waste_type"])
 
         return schedule
-
-    def get_week_trash_message(self):
-        schedule = self.get_schedule(datetime.datetime.today() + datetime.timedelta(days=1), datetime.datetime.today() + datetime.timedelta(days=8))
-        message = "Hello Food Master, for this week you need to put these trashes in front the house before 7:00am:\n"
-        for date in schedule:
-            message = message + " The {0} on {1}.\n".format(schedule[date], calendar.day_name[date.weekday()])
-        return message 
-
-
-if __name__ == "__main__":
-    grabber = TrashScheduleGrabber()
-    print(grabber.get_schedule( datetime.datetime.today() + datetime.timedelta(days=1), datetime.datetime.today() + datetime.timedelta(days=8)))
-    print(grabber.get_week_trash_message())
 
