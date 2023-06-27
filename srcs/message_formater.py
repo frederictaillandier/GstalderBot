@@ -1,7 +1,14 @@
 import calendar
 
+waste_type = ["We recycle", "Normal", "Bio", "Carboard", "Paper", "Unknown", "Unknown2", "Hazard"] 
+
+def format_trash_list(trash_list):
+    if len(trash_list) == 1:
+        return waste_type[trash_list[0]]
+    else:
+        return waste_type[trash_list[0]] + " and " + format_trash_list(trash_list[1:])
+
 class MessageFormater:
-    waste_type = ["We recycle", "Normal", "Bio", "Carboard", "Paper", "Unknown", "Unknown2", "Hazard"] 
 
     def __init__(self, food_master):
         self.food_master = food_master
@@ -16,6 +23,6 @@ class MessageFormater:
         message = "Hello {0},\nfor this week you need to put these trashes in front the house before 7:00am:\n".format(self.food_master)
         for date in schedule:
             # Todo: handling multiple trash type on a day
-            message = message + "The {0} on {1}.\n".format(self.waste_type[schedule[date][0]], calendar.day_name[date.weekday()])
+            message = message + "The {0} on {1}.\n".format(format_trash_list(schedule[date]), calendar.day_name[date.weekday()])
         message = message + "Thank you !\n"
         return message
