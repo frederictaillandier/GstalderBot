@@ -22,7 +22,6 @@ class MessageFormater:
     def get_weekly_schedule_text(self, schedule):
         message = "Hello {0},\nfor this week you need to put these trashes in front the house before 7:00am:\n".format(self.food_master)
         for date in schedule:
-            # Todo: handling multiple trash type on a day
             message = message + "The {0} on {1}.\n".format(format_trash_list(schedule[date]), calendar.day_name[date.weekday()])
         message = message + "Thank you !\n"
         return message

@@ -15,11 +15,14 @@ class AdliwsilTrashScheduleGrabber:
     def __init__(self):
         self.url = "https://adliswil.entsorglos.swiss/backend/widget/calendar-dates/{0}-{1}/"
 
-    def grab(self, date, until):
-        result = requests.get(self.url.format(date.month, date.year))
+    def grab(self, from_date, until_date):
+        result = requests.get(self.url.format(from_date.month, from_date.year))
         if result.status_code != 200:
             raise Exception("Could not get trash schedule from " + self.url)
-        return  trim_schedule(list(result.json()['results']['events']))
+        raw_schedule = list(result.json()['results']['events'])
+        filtered_schedule = list(filter(lambda event: event["date"] >= from_date and event["date"] <= until_date, raw_schedule))
+        trimmed_schedule = trim_schedule(filtered_schedule)
+        return trimmed_schedule
 
 class WeRecycleTrashScheduleGrabber:
     def __init__(self):
@@ -44,14 +47,10 @@ class TrashScheduleGrabber:
 
         # grab events for all the event grabbers
         for grabber in self.raw_grabbers:
-            raw_schedule = raw_schedule + grabber.grab(from_date, until_date)
-
-        # filter the schedule to only contain the dates we want
-        # Todo: this could be done in the grabber
-        clean_events = list(filter(lambda event: event["date"] >= from_date and event["date"] <= until_date, raw_schedule))
+            raw_schedule = raw_schedule + grabber.grab(from_date, until_date)        
 
         schedule = {}
-        for event in clean_events:
+        for event in raw_schedule:
             if event["date"] not in schedule:
                 schedule[event["date"]] = []
             schedule[event["date"]].append(event["waste_type"])
