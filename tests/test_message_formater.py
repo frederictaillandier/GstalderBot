@@ -13,3 +13,8 @@ def test_message_weekly_schedule():
     formater = MessageFormater("abc")
     message = formater.get_weekly_schedule_text({datetime.datetime(2023, 6, 1) : [0], datetime.datetime(2023, 6, 2):[1]})
     assert message == "Hello abc,\nfor this week you need to put these trashes in front the house before 7:00am:\nThe We recycle on Thursday.\nThe Normal on Friday.\nThank you !\n"
+
+def test_message_weekly_schedule_multiple_trash():
+    formater = MessageFormater("abc")
+    message = formater.get_weekly_schedule_text({datetime.datetime(2023, 6, 1) : [0, 1], datetime.datetime(2023, 6, 2):[1]})
+    assert message == "Hello abc,\nfor this week you need to put these trashes in front the house before 7:00am:\nThe We recycle and Normal on Thursday.\nThe Normal on Friday.\nThank you !\n"
