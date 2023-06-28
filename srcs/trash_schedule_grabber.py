@@ -20,9 +20,10 @@ class AdliwsilTrashScheduleGrabber:
         if result.status_code != 200:
             raise Exception("Could not get trash schedule from " + self.url)
         raw_schedule = list(result.json()['results']['events'])
-        filtered_schedule = list(filter(lambda event: event["date"] >= from_date and event["date"] <= until_date, raw_schedule))
-        trimmed_schedule = trim_schedule(filtered_schedule)
-        return trimmed_schedule
+        trimmed_schedule = trim_schedule(raw_schedule)
+        filtered_schedule = list(filter(lambda event: event["date"] >= from_date and event["date"] <= until_date, trimmed_schedule))
+
+        return filtered_schedule
 
 class WeRecycleTrashScheduleGrabber:
     def __init__(self):
