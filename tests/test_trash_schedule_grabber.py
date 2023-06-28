@@ -39,8 +39,8 @@ def test_trim_schedule():
 
 def test_adliswil_trash_schedule_grabber():
     grabber = AdliwsilTrashScheduleGrabber()
-    schedule = grabber.grab(datetime.datetime(2023, 6, 1), datetime.datetime(2023, 6, 1))
-    assert schedule[0]["waste_type"] == 2
+    schedule = grabber.grab(datetime.datetime(2023, 6, 1), datetime.datetime(2023, 6, 2))
+    assert schedule[0]["waste_type"] == 1
 
 def test_trash_schedule_grabber():
     grabber = TrashScheduleGrabber()
