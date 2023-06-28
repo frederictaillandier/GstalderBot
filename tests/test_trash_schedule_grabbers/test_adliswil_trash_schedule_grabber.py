@@ -1,3 +1,5 @@
+""" Test AdliswilTrashScheduleGrabber """
+
 from srcs.trash_schedule_grabbers.adliswil_trash_schedule_grabber import *
 import pytest
 import datetime

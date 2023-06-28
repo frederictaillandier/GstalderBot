@@ -8,18 +8,20 @@ import json
 import os
 
 def main():
+    """Main function of the program."""
     # get config and builders
     config = json.loads(os.environ["GSTALDERCONFIG"])
     trash_schedule_grabber = TrashScheduleGrabber()
 
-    # get food masters
     food_master_finder = FoodMasterFinder(
-        config["flatmates"], 
+        config["flatmates"],
         datetime.date.today() + datetime.timedelta(days=1)
         )
     master = food_master_finder.get_current()
     previous_master = food_master_finder.get_previous()
-    schedule = trash_schedule_grabber.get_schedule(datetime.datetime.today() + datetime.timedelta(days=1), datetime.datetime.today() + datetime.timedelta(days=8))
+    schedule = trash_schedule_grabber.get_schedule(
+        datetime.datetime.today() + datetime.timedelta(days=1),
+        datetime.datetime.today() + datetime.timedelta(days=8))
 
     text_formater = message_formater.MessageFormater(master['name'])
 
@@ -27,8 +29,8 @@ def main():
     global_chat_sender = TelegramSender(config["bot_token"], config["global_chat_id"])
 
     introduction_text = text_formater.get_role_update_text(previous_master['name'])
-    fluffer = GPTFluffer(config["open_ai_key"])    
-    message = fluffer.fluff(introduction_text) 
+    fluffer = GPTFluffer(config["open_ai_key"])
+    message = fluffer.fluff(introduction_text)
     global_chat_sender.send_message(message)
 
     # build and send weelkly schedule message
@@ -38,5 +40,5 @@ def main():
 
     return 0
 
-if __name__ == "__main__": 
+if __name__ == "__main__":
     main()
