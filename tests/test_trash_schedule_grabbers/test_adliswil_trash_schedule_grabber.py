@@ -1,5 +1,6 @@
-import pytest, datetime
-from srcs.trash_schedule_grabber import *
+from srcs.trash_schedule_grabbers.adliswil_trash_schedule_grabber import *
+import pytest
+import datetime
 
 def test_trim_date():
     data = {
@@ -41,8 +42,3 @@ def test_adliswil_trash_schedule_grabber():
     grabber = AdliwsilTrashScheduleGrabber()
     schedule = grabber.grab(datetime.datetime(2023, 6, 1), datetime.datetime(2023, 6, 2))
     assert schedule[0]["waste_type"] == 1
-
-def test_trash_schedule_grabber():
-    grabber = TrashScheduleGrabber()
-    schedule = grabber.get_schedule(datetime.datetime(2023, 6, 1), datetime.datetime(2023, 6, 2))
-    assert schedule[datetime.datetime(2023, 6, 1, 2, 0)][0] == 1
