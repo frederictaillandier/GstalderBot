@@ -1,7 +1,7 @@
 from telegram_sender import TelegramSender
 from gpt_fluffer import GPTFluffer
 from food_master_finder import FoodMasterFinder
-from trash_schedule_grabber import TrashScheduleGrabber
+from trash_schedule_grabbers.trash_schedule_grabber import TrashScheduleGrabber
 import message_formater
 import datetime
 import json
