@@ -35,7 +35,7 @@ class AdliwsilTrashScheduleGrabber:
         """
         result = requests.get(self.url.format(from_date.month, from_date.year), timeout=5)
         if result.status_code != 200:
-            raise Exception("Could not get trash schedule from " + self.url)
+            raise RuntimeError("Could not get trash schedule from " + self.url)
         raw_schedule = list(result.json()['results']['events'])
         trimmed_schedule = trim_schedule(raw_schedule)
         filtered_schedule = list(filter(lambda event: event["date"] >= from_date 

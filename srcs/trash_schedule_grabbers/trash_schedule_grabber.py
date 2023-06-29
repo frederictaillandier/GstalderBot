@@ -1,8 +1,8 @@
 """Module to fetch the trash schedule from different providers."""
 
 import datetime
-from .adliswil_trash_schedule_grabber import AdliwsilTrashScheduleGrabber
-from .we_recycle_trash_schedule_grabber import WeRecycleTrashScheduleGrabber
+from .adliswil_trash_schedule_grabber import AdliwsilTrashScheduleGrabber # pylint: disable=relative-beyond-top-level
+from .we_recycle_trash_schedule_grabber import WeRecycleTrashScheduleGrabber # pylint: disable=relative-beyond-top-level
 
 class TrashScheduleGrabber:
     """Class to fetch the trash schedule from different providers."""
