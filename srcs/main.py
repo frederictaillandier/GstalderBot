@@ -5,7 +5,7 @@ import os
 
 from food_master_finder import FoodMasterFinder
 from trash_schedule_grabbers.trash_schedule_grabber import TrashScheduleGrabber
-from notification_producers.notification_producer import NotificationProducer
+from notification_producer import NotificationProducer
 
 def main():
     """Main function of the program."""

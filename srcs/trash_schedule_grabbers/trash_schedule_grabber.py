@@ -7,7 +7,7 @@ from .we_recycle_trash_schedule_grabber import WeRecycleTrashScheduleGrabber # p
 class TrashScheduleGrabber:
     """Class to fetch the trash schedule from different providers."""
     def __init__(self):
-        self.raw_grabbers = [AdliwsilTrashScheduleGrabber(), 
+        self.raw_grabbers = [AdliwsilTrashScheduleGrabber(),
                              WeRecycleTrashScheduleGrabber()]
 
     def get_schedule(self, from_date = None, until_date = None):
