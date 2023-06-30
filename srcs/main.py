@@ -24,7 +24,8 @@ def main():
         config
         )
 
-    notif_producer.send_daily_schedule()
+    # Todo: activate daily on a daily basis and not weekly
+    #notif_producer.send_daily_schedule()
     notif_producer.send_weekly_schedule()
     notif_producer.send_food_master_change()
     return 0
