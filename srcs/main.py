@@ -3,12 +3,9 @@ import datetime
 import json
 import os
 
-from telegram_sender import TelegramSender
-from gpt_fluffer import GPTFluffer
 from food_master_finder import FoodMasterFinder
 from trash_schedule_grabbers.trash_schedule_grabber import TrashScheduleGrabber
-import message_formater
-
+from notification_producers.notification_producer import NotificationProducer
 
 def main():
     """Main function of the program."""
@@ -20,27 +17,16 @@ def main():
         config["flatmates"],
         datetime.date.today() + datetime.timedelta(days=1)
         )
-    master = food_master_finder.get_current()
-    previous_master = food_master_finder.get_previous()
-    schedule = trash_schedule_grabber.get_schedule(
-        datetime.datetime.today() + datetime.timedelta(days=1),
-        datetime.datetime.today() + datetime.timedelta(days=8))
 
-    text_formater = message_formater.MessageFormater(master['name'])
+    notif_producer = NotificationProducer(
+        food_master_finder,
+        trash_schedule_grabber,
+        config
+        )
 
-    # build and send role update message
-    global_chat_sender = TelegramSender(config["bot_token"], config["global_chat_id"])
-
-    introduction_text = text_formater.get_role_update_text(previous_master['name'])
-    fluffer = GPTFluffer(config["open_ai_key"])
-    message = fluffer.fluff(introduction_text)
-    global_chat_sender.send_message(message)
-
-    # build and send weelkly schedule message
-    weekly_schedule_text = text_formater.get_weekly_schedule_text(schedule)
-    food_master_chat_sender = TelegramSender(config["bot_token"], master["chat_id"])
-    food_master_chat_sender.send_message(weekly_schedule_text)
-
+    notif_producer.send_daily_schedule()
+    notif_producer.send_weekly_schedule()
+    notif_producer.send_food_master_change()
     return 0
 
 if __name__ == "__main__":
