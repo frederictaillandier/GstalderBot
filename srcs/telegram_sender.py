@@ -16,5 +16,5 @@ class TelegramSender:
         }
         result = requests.post(url, data=data, timeout=5)
         if result.status_code == 200:
-            return True
+            return result.json()
         return False
