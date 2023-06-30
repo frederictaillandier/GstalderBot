@@ -5,6 +5,7 @@ import os
 sys.path.append(os.getcwd())
 from srcs.message_formater import MessageFormater
 from srcs.telegram_sender import TelegramSender
+from srcs.gpt_fluffer import GPTFluffer
 
 class NotificationProducer:
     """ Parent class to create telegram notifications. """
@@ -21,11 +22,14 @@ class NotificationProducer:
         previous_master = self.food_master_finder.get_previous()
         introduction_text = self.message_formater.get_role_update_text(previous_master['name'])
 
+        fluffer = GPTFluffer(self.config["open_ai_key"])
+        fluffed_introduction_text = fluffer.fluff(introduction_text)
+
         sender = TelegramSender(
             self.config["bot_token"],
             self.config["global_chat_id"]
         )
-        return sender.send_message(introduction_text)
+        return sender.send_message(fluffed_introduction_text)
 
     def send_weekly_schedule(self):
         """ Sends a message to the telegram chat with the weekly trash schedule. """
