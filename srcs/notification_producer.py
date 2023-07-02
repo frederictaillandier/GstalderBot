@@ -50,7 +50,8 @@ class NotificationProducer:
         schedule = self.trash_schedule_grabber.get_schedule(
             datetime.datetime.today()
             )
-        daily_schedule_text = self.message_formater.get_daily_update_text(schedule)
+        daily_schedule_text = self.message_formater\
+            .get_daily_update_text(list(schedule.values())[0])
 
         food_master_chat_sender = TelegramSender(
             self.config["bot_token"],

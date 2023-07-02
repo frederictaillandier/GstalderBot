@@ -25,9 +25,15 @@ class MessageFormater:
 
     # Todo: Update this function with the right action as:
     # Hi {Food master}! Tomorrow you need to get the Normal trashes out and the Bio trashes out.
-    def get_daily_update_text(self, schedule):
-        """Returns the text to be send to the food master every day for the tasks of the day."""
-        return f"Hi { self.food_master }! You need to get the trashes out tomorrow.\n\n"
+    def get_daily_update_text(self, trash_list):
+        """Returns the text to be send to the food master every day for the tasks of the day.
+        Example: trash_list = [1, 2] -> 'Normal and Bio'
+        """
+        if trash_list == []:
+            return f"Hi { self.food_master }! " + \
+                "No trash pickup for tomorrow, have a nice evening!\n\n"
+        return f"Hi { self.food_master }! Don't forget to take out the "+\
+            f"{format_trash_list(trash_list)} before 7am tomorrow. Have a nice evening.\n\n"
 
     def get_weekly_schedule_text(self, schedule):
         """Returns the text to be send to the food master every week for the tasks of the week.
