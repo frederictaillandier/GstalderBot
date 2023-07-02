@@ -23,9 +23,9 @@ class TrashScheduleGrabber:
 
         # making sure the dates are set and using tomorrow if not
         if from_date is None:
-            from_date = datetime.datetime.today() + datetime.timedelta(days=1)
+            from_date = datetime.datetime.today()
         if until_date is None:
-            until_date = from_date
+            until_date = from_date + datetime.timedelta(days=1)
 
         # grab events for all the event grabbers
         for grabber in self.raw_grabbers:

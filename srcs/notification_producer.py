@@ -34,8 +34,8 @@ class NotificationProducer:
     def send_weekly_schedule(self):
         """ Sends a message to the telegram chat with the weekly trash schedule. """
         schedule = self.trash_schedule_grabber.get_schedule(
-            datetime.datetime.today() + datetime.timedelta(days=1),
-            datetime.datetime.today() + datetime.timedelta(days=8)
+            datetime.datetime.today(),
+            datetime.datetime.today() + datetime.timedelta(days=7)
             )
         weekly_schedule_text = self.message_formater.get_weekly_schedule_text(schedule)
 
