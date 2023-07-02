@@ -2,6 +2,7 @@
 import datetime
 import json
 import os
+import argparse
 
 from food_master_finder import FoodMasterFinder
 from trash_schedule_grabbers.trash_schedule_grabber import TrashScheduleGrabber
@@ -24,10 +25,13 @@ def main():
         config
         )
 
-    # Todo: activate daily on a daily basis and not weekly
-    #notif_producer.send_daily_schedule()
-    notif_producer.send_weekly_schedule()
-    notif_producer.send_food_master_change()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--weekly", help="send weekly schedule", action="store_true")
+    args = parser.parse_args()
+    if args.weekly:
+        notif_producer.send_weekly_schedule()
+        notif_producer.send_food_master_change()
+    notif_producer.send_daily_schedule()
     return 0
 
 if __name__ == "__main__":

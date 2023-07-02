@@ -28,10 +28,24 @@ def test_message_weekly_schedule_multiple_trash():
     message = formater.get_weekly_schedule_text(
         {
             datetime.datetime(2023, 6, 1) : [0, 1],
-            datetime.datetime(2023, 6, 2):[1]
+            datetime.datetime(2023, 6, 2) : [1]
         })
     assert message == "Hello 123,\n"+\
         "for this week you need to put these trashes in front the house before 7:00am:\n"+\
         "The We recycle and Normal on Thursday.\n"+\
         "The Normal on Friday.\n"+\
         "Thank you !\n"
+
+def test_message_formating_of_daily_schedule():
+    """ Test formater of the daily schedule"""
+    formater = MessageFormater("abc")
+    message = formater.get_daily_update_text([0,1])
+    assert message == "Hi abc! Don't forget to take out "\
+        + "the We recycle and Normal before 7am tomorrow. "\
+        + "Have a nice evening.\n\n"
+
+def test_message_formating_of_daily_schedule_empty():
+    """ Test formater of the daily schedule as empty"""
+    formater = MessageFormater("abc")
+    message = formater.get_daily_update_text([])
+    assert message ==  "Hi abc! No trash pickup for tomorrow, have a nice evening!\n\n"
