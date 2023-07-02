@@ -43,6 +43,6 @@ jobs:
           pip install openai python-dateutil
       - name: run
         run: |
-          python3 srcs/main.py
+          python3 srcs/main.py --weekly
         env:
           GSTALDERCONFIG: ${{ secrets.GSTALDERCONFIG_TEST }}

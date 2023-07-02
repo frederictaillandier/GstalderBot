@@ -15,8 +15,15 @@ jobs:
           - name: Install packages
             run: |
               pip install openai python-dateutil
-          - name: run
+          - name: run sunday
+            if: github.event.schedule == '0 18 * * 0'
             run: |
-              python3 srcs/main.py
+                python3 srcs/main.py --weekly
+            env:
+              GSTALDERCONFIG: ${{ secrets.GSTALDERCONFIG_PROD }}
+          - name: run rest of the week
+            if: github.event.schedule != '0 18 * * 0'
+            run: |
+                python3 srcs/main.py
             env:
               GSTALDERCONFIG: ${{ secrets.GSTALDERCONFIG_PROD }}
