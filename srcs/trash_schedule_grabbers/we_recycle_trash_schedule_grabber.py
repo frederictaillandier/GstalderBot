@@ -12,9 +12,6 @@ class WeRecycleTrashScheduleGrabber:
         { "date": datetime.datetime(2023, 9, 26), "waste_type": 0 }
     ]
 
-    def __init__(self):
-        pass
-
     def grab(self, date, until):
         """
         Returns a list of dicts of the trash schedule from the Adliswil website.

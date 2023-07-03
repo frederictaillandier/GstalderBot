@@ -23,8 +23,6 @@ class MessageFormater:
         return f"{ex_food_master} is no more the food master. " + \
                f"{self.food_master} is the new food master.\n\n"
 
-    # Todo: Update this function with the right action as:
-    # Hi {Food master}! Tomorrow you need to get the Normal trashes out and the Bio trashes out.
     def get_daily_update_text(self, trash_list):
         """Returns the text to be send to the food master every day for the tasks of the day.
         Example: trash_list = [1, 2] -> 'Normal and Bio'
