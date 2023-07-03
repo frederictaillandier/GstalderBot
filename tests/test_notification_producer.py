@@ -21,6 +21,12 @@ class TrashScheduleGrabberMock:
         """ MOCK Returns the trash schedule for the given period."""
         return {datetime.datetime(2021, 1, 1): [1, 2, 3]}
 
+class TrashScheduleGrabberMockNoData:
+    """ MOCK TrashScheduleGrabber class with no data"""
+    def get_schedule(self, start = None, end = None): # pylint: disable=unused-argument
+        """ MOCK Returns the trash schedule for the given period."""
+        return {}
+
 def test_notification_producer_send_weelkly():
     """ Test the NotificationProducer class"""
     config = json.loads(os.environ["GSTALDERCONFIG"])
@@ -63,3 +69,16 @@ def test_notification_producer_send_food_master_change():
     response = producer.send_food_master_change()
     assert config['flatmates'][1]['name'] in response["result"]["text"]
     assert config['flatmates'][0]['name'] in response["result"]["text"]
+
+def test_notification_producer_send_food_master_change_no_data():
+    """ Test the NotificationProducer daily notification with no data included"""
+    config = json.loads(os.environ["GSTALDERCONFIG"])
+    producer = NotificationProducer(
+        FoodMasterFinderMock(config),
+        TrashScheduleGrabberMockNoData(),
+        config=config
+    )
+    response = producer.send_daily_schedule()
+    assert response["result"]["text"] == \
+        f"Hi {config['flatmates'][0]['name']}! " +\
+        "No trash pickup for tomorrow, have a nice evening!"
