@@ -1,4 +1,4 @@
-# GstalderBot2.0
+# GstalderBot
 A chatbot to manage a shared house chores
 
 ## Install and Use
