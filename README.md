@@ -23,3 +23,5 @@ where:</br>
 **bot_token** is your [telegram](https://core.telegram.org/bots/api) bot token</br>
 **global_chat_id** is the [telegram](https://core.telegram.org/bots/api) group chat where the bot writes for all flatmates</br>
 **flatmates** is the list of your flatmates and **chat_it** fits a chat only targeted for a specific flatmate</br>
+
+test
