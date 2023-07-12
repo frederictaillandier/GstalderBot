@@ -1,4 +1,4 @@
-![image](https://github.com/frederictaillandier/GstalderBot/assets/5926779/79d76f79-38e8-45cd-a286-67e8e8110880)# GstalderBot
+# GstalderBot
 A chatbot to manage a shared house chores
 
 ## Install and Use
