@@ -25,4 +25,5 @@ where:</br>
 **flatmates** is the list of your flatmates and **chat_it** fits a chat only targeted for a specific flatmate</br>
 
 ![image](https://github.com/frederictaillandier/GstalderBot/assets/5926779/96835696-8428-4a25-8309-3a1ea17c90b8)
-![image](https://github.com/frederictaillandier/GstalderBot/assets/5926779/8c931938-1d4b-47f3-a17f-586019550303)
+![image](https://github.com/frederictaillandier/GstalderBot/assets/5926779/733c27bb-086e-4016-ab94-35e8820a77bc)
+
