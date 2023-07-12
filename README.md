@@ -1,4 +1,4 @@
-# GstalderBot
+![image](https://github.com/frederictaillandier/GstalderBot/assets/5926779/79d76f79-38e8-45cd-a286-67e8e8110880)# GstalderBot
 A chatbot to manage a shared house chores
 
 ## Install and Use
@@ -23,3 +23,6 @@ where:</br>
 **bot_token** is your [telegram](https://core.telegram.org/bots/api) bot token</br>
 **global_chat_id** is the [telegram](https://core.telegram.org/bots/api) group chat where the bot writes for all flatmates</br>
 **flatmates** is the list of your flatmates and **chat_it** fits a chat only targeted for a specific flatmate</br>
+
+![image](https://github.com/frederictaillandier/GstalderBot/assets/5926779/96835696-8428-4a25-8309-3a1ea17c90b8)
+![image](https://github.com/frederictaillandier/GstalderBot/assets/5926779/8c931938-1d4b-47f3-a17f-586019550303)
