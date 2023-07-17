@@ -1,9 +1,12 @@
-name: Daily
+name: Production-Cron
 on:
     schedule:
-      - cron: '0 18 * * *'
+    # Handles all the daily tasks
+      - cron: '0 18 * * 1,6'
+    # Adds the week presentation
+      - cron: '0 18 * * 0'
 jobs:
-    integration:
+    production:
         name: Production
         runs-on: ubuntu-latest
         steps:
@@ -22,7 +25,7 @@ jobs:
             env:
               GSTALDERCONFIG: ${{ secrets.GSTALDERCONFIG_PROD }}
           - name: run rest of the week
-            if: github.event.schedule != '0 18 * * 0'
+            if: github.event.schedule == '0 18 * * 1,6'
             run: |
                 python3 srcs/main.py
             env:
