@@ -1,0 +1,32 @@
+name: Production-Cron
+on:
+    schedule:
+    # Handles all the daily tasks
+      - cron: '0,10,20,30,40 * * * *'
+    # Adds the week presentation
+      - cron: '50 * * * *'
+jobs:
+    production:
+        name: Production
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v3
+          - name: Set up Python
+            uses: actions/setup-python@v4
+            with:
+              python-version: ${{ matrix.python-version }}
+          - name: Install packages
+            run: |
+              pip install openai python-dateutil
+          - name: run sunday
+            if: github.event.schedule == '50 * * * *'
+            run: |
+                python3 srcs/main.py --weekly
+            env:
+              GSTALDERCONFIG: ${{ secrets.GSTALDERCONFIG_TEST }}
+          - name: run rest of the week
+            if: github.event.schedule == '0,10,20,30,40 * * * *'
+            run: |
+                python3 srcs/main.py
+            env:
+              GSTALDERCONFIG: ${{ secrets.GSTALDERCONFIG_TEST }}
