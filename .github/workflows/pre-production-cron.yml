@@ -1,13 +1,13 @@
-name: Production-Cron
+name: Pre-Production-Cron
 on:
     schedule:
     # Handles all the daily tasks
-      - cron: '0,10,20,30,40 * * * *'
+      - cron: '0 16 * * 1-6'
     # Adds the week presentation
-      - cron: '50 * * * *'
+      - cron: '0 16 * * 0'
 jobs:
     production:
-        name: Production
+        name: Pre-Production
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v3
@@ -19,13 +19,13 @@ jobs:
             run: |
               pip install openai python-dateutil
           - name: run sunday
-            if: github.event.schedule == '50 * * * *'
+            if: github.event.schedule == '0 16 * * 0'
             run: |
                 python3 srcs/main.py --weekly
             env:
               GSTALDERCONFIG: ${{ secrets.GSTALDERCONFIG_TEST }}
           - name: run rest of the week
-            if: github.event.schedule == '0,10,20,30,40 * * * *'
+            if: github.event.schedule == '0 16 * * 1-6'
             run: |
                 python3 srcs/main.py
             env:
