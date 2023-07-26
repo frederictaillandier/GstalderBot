@@ -10,7 +10,7 @@ def trim_date(date):
     { "date": datetime.datetime(2021, 6, 1, 0, 0), "waste_type": 1 }
     """
     return {
-        "date": parse(date["date"]).replace(tzinfo=None),
+        "date": parse(date["date"]).replace(tzinfo=None, hour=0, minute=0, second=0),
         "waste_type": date["waste_type"]
     }
 
