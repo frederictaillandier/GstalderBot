@@ -56,7 +56,7 @@ def test_notification_producer_send_daily():
     assert response["result"]["text"] == \
         f"Hi {config['flatmates'][0]['name']}! " +\
         "Don't forget to take out the Normal and Bio "+\
-            "and Carboard before 7am tomorrow. Have a nice evening."
+            "and Carboard before 7am tomorrow.\nHave a nice evening."
 
 def test_notification_producer_send_food_master_change():
     """ Test the NotificationProducer class"""
