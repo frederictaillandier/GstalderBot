@@ -35,7 +35,7 @@ class MessageFormater:
         if 0 in trash_list:
             text = text + "Do we still have enough we-recycle bags ?\n"+\
                 "If not, can you order some new ? By adding a sticker on the last bag ?\n"
-        text = text + "Thank you and have a nice evening !\n\n"
+        text = text + "Have a nice evening."
         return text
         
 
