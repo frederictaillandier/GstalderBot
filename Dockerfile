@@ -8,6 +8,9 @@ RUN pip3 install \
     dateutils \
     openai
 
+RUN useradd -ms /bin/bash gstaldergeist
+USER gstaldergeist
+
 WORKDIR /home/gstaldergeist
 COPY ./srcs ./srcs
 CMD python3 ./srcs/main.py
