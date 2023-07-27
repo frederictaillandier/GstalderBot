@@ -7,7 +7,9 @@ A telegram chatbot to manage a shared house chores
 
 ## Install and Use
 
-Fork the repository as it relies on github workflow to run,and add a secret as:</br>
+Fork the repository and set an env variable as : 
+
+:</br>
 `GSTALDERCONFIG_PROD`</br>
 as</br>
 ```json
@@ -22,14 +24,19 @@ as</br>
     ]
 }
 ```
-where:</br>
+
+using these parameters:
 **open_ai_key** is your [gpt_api](https://platform.openai.com/account/api-keys) api key</br>
 **bot_token** is your [telegram](https://core.telegram.org/bots/api) bot token</br>
 **global_chat_id** is the [telegram](https://core.telegram.org/bots/api) group chat where the bot writes for all flatmates</br>
 **flatmates** is the list of your flatmates and **chat_it** fits a chat only targeted for a specific flatmate</br>
 
-![image](https://github.com/frederictaillandier/GstalderBot/assets/5926779/96835696-8428-4a25-8309-3a1ea17c90b8)
-![image](https://github.com/frederictaillandier/GstalderBot/assets/5926779/733c27bb-086e-4016-ab94-35e8820a77bc)
+
+if a ```config.json``` file was given to you then simply 
+
+```export GSTALDERCONFIG=`cat config.json` ```
+and then run with 
+```python3 main.py ```
 
 ## Production environment
 
@@ -44,3 +51,7 @@ This project is trying to use the Test Driven Development approach.
 So, in order to run the tests, use:
 
 ```tox -e py```
+
+![image](https://github.com/frederictaillandier/GstalderBot/assets/5926779/96835696-8428-4a25-8309-3a1ea17c90b8)
+![image](https://github.com/frederictaillandier/GstalderBot/assets/5926779/733c27bb-086e-4016-ab94-35e8820a77bc)
+
