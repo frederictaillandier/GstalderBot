@@ -8,10 +8,6 @@ RUN pip3 install \
     dateutils \
     openai
 
-RUN addgroup nonroot
-
-USER nonroot
-
 WORKDIR /home/gstaldergeist
 COPY ./srcs ./srcs
 CMD python3 ./srcs/main.py
