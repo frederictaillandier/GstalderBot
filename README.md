@@ -1,5 +1,8 @@
-# GstalderBot
+# GstalderGeist
 A chatbot to manage a shared house chores
+
+![image](https://github.com/frederictaillandier/GstalderBot/assets/5926779/2b889777-6dcb-4165-a5f3-a0c96b89c7ac)
+
 
 ## Install and Use
 
