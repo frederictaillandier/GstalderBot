@@ -27,3 +27,16 @@ where:</br>
 ![image](https://github.com/frederictaillandier/GstalderBot/assets/5926779/96835696-8428-4a25-8309-3a1ea17c90b8)
 ![image](https://github.com/frederictaillandier/GstalderBot/assets/5926779/733c27bb-086e-4016-ab94-35e8820a77bc)
 
+## Production environment
+
+This project runs on the cloud using: 
+- AWS Elastic container service
+- AWS Event bridge
+
+
+## TESTS
+
+This project is trying to use the Test Driven Development approach. 
+So, in order to run the tests, use:
+
+```tox -e py```
