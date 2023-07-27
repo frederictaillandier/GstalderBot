@@ -30,8 +30,15 @@ class MessageFormater:
         if trash_list == []:
             return f"Hi { self.food_master }! " + \
                 "No trash pickup for tomorrow, have a nice evening!\n\n"
-        return f"Hi { self.food_master }! Don't forget to take out the "+\
-            f"{format_trash_list(trash_list)} before 7am tomorrow. Have a nice evening.\n\n"
+        text = f"Hi { self.food_master }! Don't forget to take out the "+\
+            f"{format_trash_list(trash_list)} before 7am tomorrow.\n"
+        if 0 in trash_list:
+            text = text + "Do we still have enough we-recycle bags ?\n"+\
+                "If not, can you order some new ? By adding a sticker on the last bag ?\n"
+        text = text + "Thank you and have a nice evening !\n\n"
+        return text
+        
+
 
     def get_weekly_schedule_text(self, schedule):
         """Returns the text to be send to the food master every week for the tasks of the week.
