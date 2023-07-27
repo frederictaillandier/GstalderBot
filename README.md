@@ -9,8 +9,8 @@ A telegram chatbot to manage a shared house chores
 
 Fork the repository and set an env variable as : 
 
-:</br>
-`GSTALDERCONFIG_PROD`</br>
+
+`GSTALDERCONFIG_PROD`
 as</br>
 ```json
 {
@@ -35,15 +35,18 @@ using these parameters:
 if a ```config.json``` file was given to you then simply 
 
 ```export GSTALDERCONFIG=`cat config.json` ```
+
 and then run with 
+
 ```python3 main.py ```
 
 ## Production environment
 
-This project runs on the cloud using: 
-- AWS Elastic container service
-- AWS Event bridge
+An instance of this project runs on an AWS cloud using: 
 
+![image](https://github.com/frederictaillandier/GstalderBot/assets/5926779/608d4a94-5b03-407a-8be6-58b45ae2b6b8)  AWS Event bridge
+
+![image](https://github.com/frederictaillandier/GstalderBot/assets/5926779/a1c383a0-1070-49f1-a2fc-61dd27425174)  AWS Elastic container service
 
 ## TESTS
 
