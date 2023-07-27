@@ -1,5 +1,9 @@
-# GstalderBot
-A chatbot to manage a shared house chores
+
+![gstaldergeistlogo-fotor-bg-remover-2023072801149](https://github.com/frederictaillandier/GstalderBot/assets/5926779/95773e06-b210-4486-a8af-e4a2cae75aaa)
+
+# Gstaldergeist
+
+A telegram chatbot to manage a shared house chores
 
 ## Install and Use
 
