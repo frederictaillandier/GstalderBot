@@ -41,8 +41,10 @@ def test_message_formating_of_daily_schedule():
     formater = MessageFormater("abc")
     message = formater.get_daily_update_text([0,1])
     assert message == "Hi abc! Don't forget to take out "\
-        + "the We recycle and Normal before 7am tomorrow. "\
-        + "Have a nice evening.\n\n"
+        + "the We recycle and Normal before 7am tomorrow.\n"\
+        + "Do we still have enough we-recycle bags ?\n"\
+        + "If not, can you order some new ? By adding a sticker on the last bag ?\n"\
+        + "Have a nice evening."
 
 def test_message_formating_of_daily_schedule_empty():
     """ Test formater of the daily schedule as empty"""
