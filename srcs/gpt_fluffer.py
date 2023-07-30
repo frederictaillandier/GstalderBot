@@ -14,7 +14,7 @@ class GPTFluffer:
             "You speak as the spirit protector of our house. Say in a poetic way : "
         )
 
-        prompt = preprompt + text + "\n\n"
+        prompt = f"{preprompt} {text} \n\n"
         reponse = openai.Completion.create(
             engine="text-davinci-003",
             prompt=prompt,
