@@ -17,6 +17,6 @@ jobs:
               pip install openai python-dateutil
           - name: run daily cron
             run: |
-                python3 srcs/main.py
+                python3 main.py
             env:
               GSTALDERCONFIG: ${{ secrets.GSTALDERCONFIG_PROD }}

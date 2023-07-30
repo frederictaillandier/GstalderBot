@@ -1,9 +1,5 @@
 """ NotificationProducer class"""
 import datetime
-import sys
-import os
-
-sys.path.append(os.getcwd())
 from srcs.message_formater import MessageFormater
 from srcs.telegram_sender import TelegramSender
 from srcs.gpt_fluffer import GPTFluffer
