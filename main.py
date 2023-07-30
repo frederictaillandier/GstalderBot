@@ -3,9 +3,9 @@ import datetime
 import json
 import os
 
-from food_master_finder import FoodMasterFinder
-from trash_schedule_grabbers.trash_schedule_grabber import TrashScheduleGrabber
-from notification_producer import NotificationProducer
+from srcs.food_master_finder import FoodMasterFinder
+from srcs.trash_schedule_grabbers.trash_schedule_grabber import TrashScheduleGrabber
+from srcs.notification_producer import NotificationProducer
 
 
 def main():

@@ -13,4 +13,5 @@ USER gstaldergeist
 
 WORKDIR /home/gstaldergeist
 COPY ./srcs ./srcs
-CMD python3 ./srcs/main.py
+COPY ./main.py ./main.py
+CMD python3 ./main.py
