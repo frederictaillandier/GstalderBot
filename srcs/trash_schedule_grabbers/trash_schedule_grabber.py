@@ -13,10 +13,10 @@ class TrashScheduleGrabber:
     """Class to fetch the trash schedule from different providers."""
 
     def __init__(self):
-        self.raw_grabbers = [
+        self.raw_grabbers = (
             AdliwsilTrashScheduleGrabber(),
             WeRecycleTrashScheduleGrabber(),
-        ]
+        )
 
     def get_schedule(self, from_date=None, until_date=None):
         """get the trash schedule from the different providers and return it as a dict

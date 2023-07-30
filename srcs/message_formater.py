@@ -1,8 +1,8 @@
 """Module providing the MessageFormater class to format the messages to be sent."""
 import calendar
+from enum import Enum
 
-# Matches the trash type text and indices
-waste_type = [
+WASTE_TYPE_DESCRIPTION = (
     "We recycle",
     "Normal",
     "Bio",
@@ -11,15 +11,15 @@ waste_type = [
     "Unknown",
     "Unknown2",
     "Hazard",
-]
+)
 
 
 def format_trash_list(trash_list):
     """Returns a string with the trash types separated by commas and the last one by an 'and'.
     Example: ['Normal', 'Bio', 'Carboard'] -> 'Normal, Bio and Carboard'"""
     if len(trash_list) == 1:
-        return waste_type[trash_list[0]]
-    return waste_type[trash_list[0]] + " and " + format_trash_list(trash_list[1:])
+        return WASTE_TYPE_DESCRIPTION[trash_list[0]]
+    return f"{WASTE_TYPE_DESCRIPTION[trash_list[0]]} and {format_trash_list(trash_list[1:])}"
 
 
 class MessageFormater:
