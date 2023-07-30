@@ -8,6 +8,9 @@ from srcs.trash_schedule_grabbers.trash_schedule_grabber import TrashScheduleGra
 from srcs.notification_producer import NotificationProducer
 
 
+SUNDAY = 6
+
+
 def main():
     """Main function of the program."""
     # get config and builders
@@ -23,7 +26,7 @@ def main():
     )
 
     # We send weekly notifications on sundays
-    if datetime.datetime.today().weekday() == 0:
+    if datetime.datetime.today().weekday() == SUNDAY:
         notif_producer.send_weekly_schedule()
         notif_producer.send_food_master_change()
     notif_producer.send_daily_schedule()
