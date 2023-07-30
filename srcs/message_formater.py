@@ -37,7 +37,7 @@ class MessageFormater:
         """Returns the text to be send to the food master every day for the tasks of the day.
         Example: trash_list = [1, 2] -> 'Normal and Bio'
         """
-        if trash_list == []:
+        if len(trash_list) == 0:
             return f"Hi { self.food_master }! No trash pickup for tomorrow, have a nice evening!\n\n"
         message_builder = []
         message_builder.append(f"Hi { self.food_master }! ")
