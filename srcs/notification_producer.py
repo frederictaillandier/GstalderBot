@@ -1,8 +1,8 @@
 """ NotificationProducer class"""
 import datetime
-from srcs.message_formater import MessageFormater
-from srcs.telegram_sender import TelegramSender
-from srcs.gpt_fluffer import GPTFluffer
+from .message_formater import MessageFormater
+from .telegram_sender import TelegramSender
+from .gpt_fluffer import GPTFluffer
 
 
 class NotificationProducer:

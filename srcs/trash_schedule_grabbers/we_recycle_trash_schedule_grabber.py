@@ -1,11 +1,12 @@
 """Module to fetch the trash schedule from the WeRecycle company."""
 import datetime
+from typing import Any
 
 
 class WeRecycleTrashScheduleGrabber:
     """Class to fetch the trash schedule from the WeRecycle company."""
 
-    RAW_DATES = (
+    RAW_DATES: tuple[dict] = (
         {"date": datetime.datetime(2023, 7, 11), "waste_type": 0},
         {"date": datetime.datetime(2023, 7, 26), "waste_type": 0},
         {"date": datetime.datetime(2023, 8, 11), "waste_type": 0},
@@ -14,7 +15,7 @@ class WeRecycleTrashScheduleGrabber:
         {"date": datetime.datetime(2023, 9, 26), "waste_type": 0},
     )
 
-    def grab(self, date: datetime, until: datetime) -> list:
+    def grab(self, date: datetime.datetime, until: datetime.datetime) -> list:
         """
         Returns a list of dicts of the trash schedule from the Adliswil website.
         Example:
