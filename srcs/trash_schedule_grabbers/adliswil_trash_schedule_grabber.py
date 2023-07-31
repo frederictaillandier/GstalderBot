@@ -30,7 +30,7 @@ class AdliwsilTrashScheduleGrabber:
             "https://adliswil.entsorglos.swiss/backend/widget/calendar-dates/{0}-{1}/"
         )
 
-    def grab(self, from_date: datetime, until_date: datetime) -> list:
+    def grab(self, from_date: datetime.datetime, until_date: datetime.datetime) -> list:
         """
         Returns a list of dicts of the trash schedule from the Adliswil website.
         Example:

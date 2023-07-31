@@ -9,7 +9,7 @@ class FoodMasterFinder:
 
     def __init__(self, flatmates: dict, tomorrow: datetime.datetime):
         self.flatmates: dict = flatmates
-        self.tomorrow: datetime = tomorrow
+        self.tomorrow: datetime.datetime = tomorrow
 
     def get_current(self) -> dict:
         """Returns the food master for the current week.
@@ -19,14 +19,14 @@ class FoodMasterFinder:
         food_master: dict = self.flatmates[week_number % len(self.flatmates)]
         return food_master
 
-    def get_previous(self) -> dict:
+    def get_previous(self) -> dict[str, str]:
         """Returns the food master for the previous week."""
         week_number: int = (self.tomorrow.isocalendar()[1]) % WEEKS_PER_YEAR
-        food_master: int = self.flatmates[(week_number - 1) % len(self.flatmates)]
+        food_master: dict = self.flatmates[(week_number - 1) % len(self.flatmates)]
         return food_master
 
     def get_next(self) -> dict:
         """Returns the food master for the next week."""
         week_number: int = (self.tomorrow.isocalendar()[1]) % WEEKS_PER_YEAR
-        food_master: int = self.flatmates[(week_number + 1) % len(self.flatmates)]
+        food_master: dict = self.flatmates[(week_number + 1) % len(self.flatmates)]
         return food_master
