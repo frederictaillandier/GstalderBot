@@ -19,7 +19,9 @@ jobs:
           python-version: 3.10.12
       - name: Install packages
         run: |
-          pip install tox python-dateutil
+          pip install tox python-dateutil mypy openai types-requests types-python-dateutil 
+      - name: Mypy
+        run: mypy main.py srcs
       - name: Run tox
         run: tox -e py
         env:
@@ -29,20 +31,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-  integration:
-    name: Integration
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.10.12
-      - name: Install packages
-        run: |
-          pip install openai python-dateutil
-      - name: run
-        run: |
-          python3 main.py
-        env:
-          GSTALDERCONFIG: ${{ secrets.GSTALDERCONFIG_TEST }}

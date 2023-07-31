@@ -6,7 +6,7 @@ from typing import Any
 class WeRecycleTrashScheduleGrabber:
     """Class to fetch the trash schedule from the WeRecycle company."""
 
-    RAW_DATES: tuple[dict] = (
+    RAW_DATES: tuple = (
         {"date": datetime.datetime(2023, 7, 11), "waste_type": 0},
         {"date": datetime.datetime(2023, 7, 26), "waste_type": 0},
         {"date": datetime.datetime(2023, 8, 11), "waste_type": 0},
