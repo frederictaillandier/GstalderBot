@@ -8,13 +8,13 @@ class GPTFluffer:
     def __init__(self, key):
         openai.api_key = key
 
-    def fluff(self, text):
+    def fluff(self, text) -> str:
         """Returns the fluffed text."""
         preprompt = (
             "You speak as the spirit protector of our house. Say in a poetic way : "
         )
 
-        prompt = f"{preprompt} {text} \n\n"
+        prompt: str = f"{preprompt} {text} \n\n"
         reponse = openai.Completion.create(
             engine="text-davinci-003",
             prompt=prompt,

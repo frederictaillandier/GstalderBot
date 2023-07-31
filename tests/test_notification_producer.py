@@ -23,15 +23,21 @@ class FoodMasterFinderMock:
 class TrashScheduleGrabberMock:
     """MOCK TrashScheduleGrabber class"""
 
-    def get_schedule(self, start=None, end=None):  # pylint: disable=unused-argument
+    def get_schedule(
+        self, from_date=None, until_date=None
+    ):  # pylint: disable=unused-argument
         """MOCK Returns the trash schedule for the given period."""
-        return {datetime.datetime(2021, 1, 1): [1, 2, 3]}
+        return {
+            datetime.datetime(year=2021, month=1, day=1): [1, 2, 3]
+        }  # TODO: change to enum
 
 
 class TrashScheduleGrabberMockNoData:
     """MOCK TrashScheduleGrabber class with no data"""
 
-    def get_schedule(self, start=None, end=None):  # pylint: disable=unused-argument
+    def get_schedule(
+        self, from_date=None, until_date=None
+    ):  # pylint: disable=unused-argument
         """MOCK Returns the trash schedule for the given period."""
         return {}
 

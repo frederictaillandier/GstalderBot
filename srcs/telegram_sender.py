@@ -5,11 +5,11 @@ import requests
 class TelegramSender:
     """Class to send messages to a telegram chat."""
 
-    def __init__(self, token, chat_id):
+    def __init__(self, token: str, chat_id: str):
         self.token = token
         self.chat_id = chat_id
 
-    def send_message(self, message):
+    def send_message(self, message: str):  # TODO: change return type
         """Sends a message to the telegram chat."""
         url = f"https://api.telegram.org/bot{self.token}/sendMessage"
         data = {"chat_id": self.chat_id, "text": message}
