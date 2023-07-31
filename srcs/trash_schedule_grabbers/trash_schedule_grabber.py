@@ -18,7 +18,9 @@ class TrashScheduleGrabber:
             WeRecycleTrashScheduleGrabber(),
         )
 
-    def get_schedule(self, from_date=None, until_date=None):
+    def get_schedule(
+        self, from_date: datetime = None, until_date: datetime = None
+    ) -> dict:
         """get the trash schedule from the different providers and return it as a dict
         Example:
         [

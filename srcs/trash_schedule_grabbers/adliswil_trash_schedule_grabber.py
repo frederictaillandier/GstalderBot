@@ -1,9 +1,10 @@
 """Module to fetch the trash schedule from the Adliswil website."""
 import requests
+import datetime
 from dateutil.parser import parse
 
 
-def trim_date(date):
+def trim_date(date: dict) -> dict:
     """Returns a dict with only the date and the waste type.
     Example:
     { "date": "2021-06-01T00:00:00+02:00", "name": "trashes", "waste_type": 1 }\n
@@ -16,7 +17,7 @@ def trim_date(date):
     }
 
 
-def trim_schedule(schedule):
+def trim_schedule(schedule: list) -> list:
     """Returns a list of dicts with only the date and the waste type."""
     return list(map(trim_date, schedule))
 
@@ -29,7 +30,7 @@ class AdliwsilTrashScheduleGrabber:
             "https://adliswil.entsorglos.swiss/backend/widget/calendar-dates/{0}-{1}/"
         )
 
-    def grab(self, from_date, until_date):
+    def grab(self, from_date: datetime, until_date: datetime) -> list:
         """
         Returns a list of dicts of the trash schedule from the Adliswil website.
         Example:
