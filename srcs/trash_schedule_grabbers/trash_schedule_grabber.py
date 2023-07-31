@@ -1,6 +1,7 @@
 """Module to fetch the trash schedule from different providers."""
 
 import datetime
+from typing import Optional
 from .adliswil_trash_schedule_grabber import (
     AdliwsilTrashScheduleGrabber,
 )
@@ -19,7 +20,9 @@ class TrashScheduleGrabber:
         )
 
     def get_schedule(
-        self, from_date: datetime.datetime = None, until_date: datetime.datetime = None
+        self,
+        from_date: Optional[datetime.datetime] = None,
+        until_date: Optional[datetime.datetime] = None,
     ) -> dict:
         """get the trash schedule from the different providers and return it as a dict
         Example:
