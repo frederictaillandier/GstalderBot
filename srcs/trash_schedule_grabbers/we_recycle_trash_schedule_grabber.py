@@ -19,6 +19,12 @@ class WeRecycleTrashScheduleGrabber:
         {"date": datetime.datetime(2023, 11, 27), "waste_type": 0},
         {"date": datetime.datetime(2023, 12, 8), "waste_type": 0},
         {"date": datetime.datetime(2023, 12, 19), "waste_type": 0},
+        {"date": datetime.datetime(2024, 1, 15), "waste_type": 0},
+        {"date": datetime.datetime(2024, 1, 26), "waste_type": 0},
+        {"date": datetime.datetime(2024, 2, 8), "waste_type": 0},
+        {"date": datetime.datetime(2024, 2, 26), "waste_type": 0},
+        {"date": datetime.datetime(2024, 3, 11), "waste_type": 0},
+        {"date": datetime.datetime(2024, 3, 25), "waste_type": 0},
     )
 
     def grab(self, date: datetime.datetime, until: datetime.datetime) -> list:
