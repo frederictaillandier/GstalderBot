@@ -1,12 +1,11 @@
 """ Module to fluff text using GPT-3. """
-import openai
-
+from openai import OpenAI
 
 class GPTFluffer:
     """Class to fluff text using GPT-3."""
 
     def __init__(self, key):
-        openai.api_key = key
+        self.client = OpenAI(api_key=key)
 
     def fluff(self, text) -> str:
         """Returns the fluffed text."""
@@ -15,8 +14,8 @@ class GPTFluffer:
         )
 
         prompt: str = f"{preprompt} {text} \n\n"
-        reponse = openai.Completion.create(
-            engine="text-davinci-003",
+        reponse = self.client.completions.create(
+            model="gpt-3.5-turbo-instruct",
             prompt=prompt,
             temperature=1,
             max_tokens=1000,
