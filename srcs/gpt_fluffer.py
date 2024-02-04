@@ -1,7 +1,6 @@
 """ Module to fluff text using GPT-3. """
 from openai import OpenAI
 
-
 class GPTFluffer:
     """Class to fluff text using GPT-3."""
 
