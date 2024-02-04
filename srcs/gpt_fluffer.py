@@ -16,7 +16,7 @@ class GPTFluffer:
 
         prompt: str = f"{preprompt} {text} \n\n"
         reponse = self.client.completions.create(
-            model="text-davinci-003",
+            model="gpt-3.5-turbo-instruct",
             prompt=prompt,
             temperature=1,
             max_tokens=1000,
