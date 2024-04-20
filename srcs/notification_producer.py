@@ -2,7 +2,7 @@
 import datetime
 from .message_formater import MessageFormater
 from .telegram_sender import TelegramSender
-from .gpt_fluffer import GPTFluffer
+
 
 
 class NotificationProducer:
@@ -23,8 +23,7 @@ class NotificationProducer:
             previous_master["name"]
         )
 
-        fluffer = GPTFluffer(self.config["open_ai_key"])
-        fluffed_introduction_text = fluffer.fluff(introduction_text)
+        fluffed_introduction_text = introduction_text
 
         sender = TelegramSender(self.config["bot_token"], self.config["global_chat_id"])
         return sender.send_message(fluffed_introduction_text)

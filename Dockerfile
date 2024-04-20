@@ -5,8 +5,7 @@ RUN apt update && apt install --no-install-recommends -y \
     python3-pip
 RUN pip3 install \
     requests \
-    dateutils \
-    openai
+    dateutils
 
 RUN useradd -ms /bin/bash gstaldergeist
 USER gstaldergeist
