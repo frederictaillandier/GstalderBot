@@ -7,24 +7,13 @@ class WeRecycleTrashScheduleGrabber:
     """Class to fetch the trash schedule from the WeRecycle company."""
 
     RAW_DATES: tuple = (
-        {"date": datetime.datetime(2023, 7, 11), "waste_type": 0},
-        {"date": datetime.datetime(2023, 7, 26), "waste_type": 0},
-        {"date": datetime.datetime(2023, 8, 11), "waste_type": 0},
-        {"date": datetime.datetime(2023, 8, 28), "waste_type": 0},
-        {"date": datetime.datetime(2023, 9, 11), "waste_type": 0},
-        {"date": datetime.datetime(2023, 9, 26), "waste_type": 0},
-        {"date": datetime.datetime(2023, 10, 10), "waste_type": 0},
-        {"date": datetime.datetime(2023, 10, 26), "waste_type": 0},
-        {"date": datetime.datetime(2023, 11, 11), "waste_type": 0},
-        {"date": datetime.datetime(2023, 11, 27), "waste_type": 0},
-        {"date": datetime.datetime(2023, 12, 8), "waste_type": 0},
-        {"date": datetime.datetime(2023, 12, 19), "waste_type": 0},
-        {"date": datetime.datetime(2024, 1, 15), "waste_type": 0},
-        {"date": datetime.datetime(2024, 1, 26), "waste_type": 0},
-        {"date": datetime.datetime(2024, 2, 8), "waste_type": 0},
-        {"date": datetime.datetime(2024, 2, 26), "waste_type": 0},
-        {"date": datetime.datetime(2024, 3, 11), "waste_type": 0},
-        {"date": datetime.datetime(2024, 3, 25), "waste_type": 0},
+        {"date": datetime.datetime(2024, 4, 9), "waste_type": 0},
+        {"date": datetime.datetime(2024, 4, 25), "waste_type": 0},
+        {"date": datetime.datetime(2024, 5, 13), "waste_type": 0},
+        {"date": datetime.datetime(2024, 5, 28), "waste_type": 0},
+        {"date": datetime.datetime(2024, 6, 11), "waste_type": 0},
+        {"date": datetime.datetime(2024, 6, 25), "waste_type": 0},
+
     )
 
     def grab(self, date: datetime.datetime, until: datetime.datetime) -> list:
