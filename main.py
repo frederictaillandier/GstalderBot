@@ -18,7 +18,7 @@ def main():
     trash_schedule_grabber = TrashScheduleGrabber()
 
     food_master_finder = FoodMasterFinder(
-        config["flatmates"], datetime.date.today() + datetime.timedelta(days=1)
+        config, datetime.date.today() + datetime.timedelta(days=1)
     )
 
     notif_producer = NotificationProducer(
