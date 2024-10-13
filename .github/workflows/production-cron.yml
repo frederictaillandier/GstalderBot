@@ -26,7 +26,7 @@ jobs:
       - name: Install packages
         run: |
           source venv/bin/activate
-          pip install python-dateutil  # Install your required dependencies
+          pip install python-dateutil requests   # Install your required dependencies
 
       - name: Run daily cron
         run: |
