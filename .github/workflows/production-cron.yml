@@ -2,6 +2,7 @@ name: Production-Cron
 on:
   schedule:
     - cron: '0 18 * * *' # Runs at 18:00 UTC
+  workflow_dispatch:  # Enables manual trigger
 
 jobs:
   production:
