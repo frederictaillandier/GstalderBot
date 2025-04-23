@@ -1,4 +1,4 @@
-# This project is deprecated and replaced with it s [RUST version](https://github.com/frederictaillandier/gstaldergeist)
+# This project is deprecated and replaced with its [RUST version](https://github.com/frederictaillandier/gstaldergeist)
 
 
 
