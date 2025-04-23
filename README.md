@@ -1,3 +1,8 @@
+# This project is deprecated and replaced with it s [RUST version](https://github.com/frederictaillandier/gstaldergeist)
+
+
+
+
 
 ![gstaldergeistlogo-fotor-bg-remover-2023072801149](https://github.com/frederictaillandier/GstalderBot/assets/5926779/95773e06-b210-4486-a8af-e4a2cae75aaa)
 
@@ -27,7 +32,7 @@ as</br>
 
 using these parameters:
 **bot_token** is your [telegram](https://core.telegram.org/bots/api) bot token</br>
-**global_chat_id** is the [telegram](https://core.telegram.org/bots/api) group chat where the bot writes for all flatmates</br>
+**global_chat_id** is the [telegram](https://core.telegram.org/bots/api) grouphttps://github.com/frederictaillandier/gstaldergeist chat where the bot writes for all flatmates</br>
 **flatmates** is the list of your flatmates and **chat_it** fits a chat only targeted for a specific flatmate</br>
 
 
